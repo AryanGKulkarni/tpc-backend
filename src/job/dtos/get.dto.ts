@@ -19,6 +19,7 @@ import {
   JobCoordinatorRoleEnum,
 } from "src/enums";
 import { CompanyFilledDto, RecruiterFilledDto, SelectionProcedureDto } from "./jaf.dto";
+import { JobRegistrationEnum } from "src/enums/jobRegistration.enum";
 
 class SeasonDto {
   @NestedUUID({})
@@ -223,6 +224,9 @@ class SalariesDto {
 }
 
 export class GetJobDto extends GetJobsDto {
+  @NestedEnum(JobRegistrationEnum, {})
+  registration: JobRegistrationEnum;
+
   @NestedObject({ type: CompanyFilledDto })
   companyDetailsFilled: CompanyFilledDto;
 

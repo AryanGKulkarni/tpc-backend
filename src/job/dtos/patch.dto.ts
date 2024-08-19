@@ -9,6 +9,7 @@ import {
 } from "src/decorators/dto";
 import { JobStatusTypeEnum } from "src/enums";
 import { SelectionProcedureDto } from "./jaf.dto";
+import { JobRegistrationEnum } from "src/enums/jobRegistration.enum";
 
 export class UpdateJobsDto {
   @NestedUUID({})
@@ -22,6 +23,9 @@ export class UpdateJobsDto {
 
   @NestedUUID({ optional: true })
   companyId?: string;
+
+  @NestedEnum(JobRegistrationEnum, { optional: true })
+  registration: JobRegistrationEnum;
 
   @NestedString({ optional: true })
   role?: string;
